@@ -9,6 +9,29 @@ sap.ui.define([
   return Controller.extend("de.sapui5buch.demo.controller.App", {
     onInit: function() {
     },
+    onValueHelpRequest: function(oEvent) {
+      var sInputValue = oEvent.getSource().getValue();
+      this._sInputId = oEvent.getSource().getId();
+      if (!this._oValueHelpDialog) {
+        this._oValueHelpDialog = sap.ui.xmlfragment("de.sapui5buch.demo.view.SelectDialog", this);
+        this.getView().addDependent(this._oValueHelpDialog);
+      }
+      this._oValueHelpDialog.getBinding("items").filter(
+        [new Filter("BusinessPartnerID", FilterOperator.Contains, sInputValue)]
+      );
+      this._oValueHelpDialog.open(sInputValue);
+    },
+    onSearch: function(oEvent) {
+      var sValue = oEvent.getParameter("value");
+      var oFilter = new Filter("BusinessPartnerID", FilterOperator.Contains, sValue);
+      oEvent.getSource().getBinding("items").filter([oFilter]);
+    },
+    onClose: function(oEvent) {
+      var oSelectedItem = oEvent.getParameter("selectedItem");
+      if (oSelectedItem) {
+        this._updateUI(oSelectedItem.getBindingContext().getPath());
+      }
+    },
     onPress: function() {
       var sInputValue = this.byId("idInputField").getValue();
       MessageBox.show("Hallo " + sInputValue, {
