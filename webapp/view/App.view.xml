@@ -2,12 +2,13 @@
   xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
   xmlns="sap.m">
   <Shell id="shell">
-    <App id="app">
+    <App id="idAppControl">
       <pages>
         <Page id="page" title="{i18n>title}">
           <content>
-            <Label text="Sag Hallo zu"/>
-            <Input/>
+            <Label text="Sag Hallo zu {page>/person}"/>
+            <!-- <Input submit="onSubmit" value="{page/person}"/> -->
+            <Input id="idInputField" value="{page>/person}" width="20rem"/>
             <Button text="Sag Hallo" press="onPress"/>
           </content>
         </Page>

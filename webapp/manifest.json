@@ -36,7 +36,7 @@
       "viewName": "de.sapui5buch.demo.view.App",
       "type": "XML",
       "async": true,
-      "id": "app"
+      "id": "idAppControl"
     },
     "dependencies": {
       "minUI5Version": "1.65.6",
