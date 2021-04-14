@@ -1,15 +1,18 @@
 <mvc:View controllerName="de.sapui5buch.demo.controller.App"
   xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-  xmlns="sap.m">
+  xmlns="sap.m"
+  xmlns:layout="sap.ui.layout">
   <Shell id="shell">
     <App id="idAppControl">
       <pages>
         <Page id="page" title="{i18n>title}">
           <content>
-            <Label text="Sag Hallo zu {page>/person}"/>
-            <!-- <Input submit="onSubmit" value="{page/person}"/> -->
-            <Input id="idInputField" value="{page>/person}" width="20rem"/>
-            <Button text="Sag Hallo" press="onPress"/>
+            <layout:VerticalLayout>
+              <Label text="Sag Hallo zu {page>/person}"/>
+              <!-- <Input submit="onSubmit" value="{page/person}"/> -->
+              <Input id="idInputField" value="{page>/person}" width="20rem"/>
+              <Button text="Sag Hallo" press="onPress"/>
+            </layout:VerticalLayout>
           </content>
         </Page>
       </pages>
