@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <VBox>
+    <HBox>
+      <Label class="sapUiTinyMarginEnd" text="Strasse:"/>
+      <Text text="{Street} {Building}"/>
+    </HBox>
+    <HBox>
+      <Label class="sapUiTinyMarginEnd" text="Land PLZ Ort:"/>
+      <Text text="{Country} {PostalCode} {City}"/>
+    </HBox>
+  </VBox>
+</core:FragmentDefinition>
