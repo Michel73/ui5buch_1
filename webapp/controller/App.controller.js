@@ -22,6 +22,7 @@ sap.ui.define([
       // oPageModel.person = inputValue;
       oPageModel.setProperty("/person", inputValue);
     },
+
     onSuggest: function(oEvent) {
       var sTerm = oEvent.getParameter("suggestValue");
       // console.log("Filter: ", sTerm)
@@ -30,6 +31,21 @@ sap.ui.define([
         aFilters.push(new Filter("BusinessPartnerID", FilterOperator.StartsWith, sTerm));
       }
       oEvent.getSource().getBinding("suggestionItems").filter(aFilters);
+    },
+    onSuggestionItemSelected: function(oEvent) {
+      var oSelectedItem = oEvent.getParameter("selectedItem");
+      var sBindingPath = oSelectedItem.getBindingContext().getPath();
+      this._updateUI(sBindingPath);
+    },
+    _updateUI: function(sBindingPath) {
+      var oHeaderContent = this.byId("headerContent");
+      oHeaderContent.bindElement(sBindingPath);
+      var oAdrSection = this.byId("addressSection");
+      oAdrSection.setVisible(true);
+      oAdrSection.bindElement(sBindingPath + "/Address");
+      var oObjLayout = this.byId("ObjectPageLayout");
+      oObjLayout.setShowHeaderContent(true);
+      oObjLayout.setToggleHeaderOnTitleClick(true);
     }
   });
 });
