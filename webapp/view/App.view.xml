@@ -11,11 +11,12 @@
           <uxap:headerTitle>
             <uxap:ObjectPageDynamicHeaderTitle>
               <uxap:heading>
-                <Input id="idInputField" value="{page>/person}" width="20rem" showSuggestion="true" suggest="onSuggest" suggestionItems="{/d/results}" suggestionItemSelected="onSuggestionItemSelected">
+                <!-- <Input id="idInputField" value="{page>/person}" width="20rem" showSuggestion="true" suggest="onSuggest" suggestionItems="{/d/results}" suggestionItemSelected="onSuggestionItemSelected">
                   <suggestionItems>
                     <core:Item text="{BusinessPartnerID} {CompanyName}"/>
                   </suggestionItems>
-                </Input>
+                </Input> -->
+                <core:Fragment fragmentName="de.sapui5buch.demo.view.Input" type="XML"/>
               </uxap:heading>
             </uxap:ObjectPageDynamicHeaderTitle>
           </uxap:headerTitle>
