@@ -1,7 +1,9 @@
 sap.ui.define([
   "sap/ui/core/mvc/Controller",
-  "sap/m/MessageBox"
-], function(Controller, MessageBox) {
+  "sap/m/MessageBox",
+  "sap/ui/model/Filter",
+  "sap/ui/model/FilterOperator"
+], function(Controller, MessageBox, Filter, FilterOperator) {
   "use strict";
 
   return Controller.extend("de.sapui5buch.demo.controller.App", {
@@ -15,13 +17,19 @@ sap.ui.define([
       });
     },
     onSubmit: function(oEvent) {
-      console.log("Submit event", oEvent.getParameters().value);
       var inputValue = oEvent.getParameters().value;
       var oPageModel = this.getOwnerComponent().getModel("page");
       // oPageModel.person = inputValue;
       oPageModel.setProperty("/person", inputValue);
-      console.log("pageModel.person: ", oPageModel.getProperty("/person"));
-
+    },
+    onSuggest: function(oEvent) {
+      var sTerm = oEvent.getParameter("suggestValue");
+      // console.log("Filter: ", sTerm)
+      var aFilters = [];
+      if (sTerm) {
+        aFilters.push(new Filter("BusinessPartnerID", FilterOperator.StartsWith, sTerm));
+      }
+      oEvent.getSource().getBinding("suggestionItems").filter(aFilters);
     }
   });
 });

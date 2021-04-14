@@ -56,6 +56,12 @@
         "settings": {
           "bundleName": "de.sapui5buch.demo.i18n.i18n"
         }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "./localService/BusinessPartnerSet.json",
+        "preload": true
       }
     },
     "resources": {
