@@ -1,7 +1,10 @@
 <core:FragmentDefinition xmlns="sap.m"
-  xmlns:core="sap.ui.core">
-  <FlexBox wrap="Wrap" fitContainer="true" id="headerContent">
-    <VBox class="sapUiLargeMarginEnd">
+  xmlns:core="sap.ui.core"
+  xmlns:layout="sap.ui.layout">
+  <!-- <FlexBox wrap="Wrap" fitContainer="true" id="headerContent"> -->
+  <layout:ResponsiveFlowLayout id="headerContent">
+    <layout:VerticalLayout width="100%">
+      <!-- <VBox class="sapUiLargeMarginEnd"> -->
       <HBox>
         <Title text="Partnerdata"/>
       </HBox>
@@ -17,8 +20,13 @@
         <Label class="sapUiTinyMarginEnd" text="Legal Form:" />
         <Text text="{LegalForm}"/>
       </HBox>
-    </VBox>
-    <VBox class="sapUiLargeMarginEnd">
+      <layout:layoutData>
+        <layout:ResponsiveFlowLayoutData minWidth="250"/>
+      </layout:layoutData>
+    </layout:VerticalLayout>
+    <!-- </VBox> -->
+    <layout:VerticalLayout width="100%">
+      <!-- <VBox class="sapUiLargeMarginEnd"> -->
       <HBox>
         <Title text="Kontaktdaten"/>
       </HBox>
@@ -38,6 +46,11 @@
         <Label class="sapUiTinyMarginEnd" text="Fax:" />
         <Text text="{FaxNumber}"/>
       </HBox>
-    </VBox>
-  </FlexBox>
+      <layout:layoutData>
+        <layout:ResponsiveFlowLayoutData minWidth="250"/>
+      </layout:layoutData>
+      <!-- </VBox> -->
+      <!-- </FlexBox> -->
+    </layout:VerticalLayout>
+  </layout:ResponsiveFlowLayout>
 </core:FragmentDefinition>
